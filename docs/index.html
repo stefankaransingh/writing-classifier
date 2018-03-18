@@ -47,7 +47,7 @@ $('.myButton').click(function() {
 	$.ajax({
 		type: 'POST',
 		headers: { 'Access-Control-Allow-Origin': '*' },
-		url: 'http://api.theai.ninja/writing_classifier/get_prediction/',
+		url: 'https://api.theai.ninja/writing_classifier/get_prediction/',
 		data: img,
 		success: function(data) {
 			console.log(data);
