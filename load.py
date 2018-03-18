@@ -5,15 +5,15 @@ from scipy.misc import imread, imresize,imshow
 import tensorflow as tf
 
 def init():
-    json_file = open('model/model.json','r')
+    json_file = open('model/emnist_models/model.json','r')
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
-    loaded_model.load_weights("model/model.h5")
+    loaded_model.load_weights("model/emnist_models/model.h5")
     print("Loaded model from disk.")
 
     loaded_model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
-    
+
     graph = tf.get_default_graph()
 
     return loaded_model,graph

@@ -45,10 +45,12 @@
 	   			var img = canvasObj.toDataURL();
 	   			$.ajax({
 	   				type: "POST",
-	   				url: $SCRIPT_ROOT + "/predict/",
+            headers: {  'Access-Control-Allow-Origin': '*' },
+	   				url: "http://api.theai.ninja/writing_classifier/get_prediction/",
 	   				data: img,
 	   				success: function(data){
-	   					$('#result').text(' Predicted Output: '+data);
+              console.log(data)
+	   					$('#result').text(' Predicted Output: '+data['output']);
 	   				}
 	   			});
 	   		});
