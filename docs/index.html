@@ -7,37 +7,49 @@
 
 
       <link rel="stylesheet" href="css/style.css">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 
 <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">AI NINJA</a>
+      </div>
+    </nav>
+    <div class="container">
 
-		<h1>Handwritten Character Recognition using <span>Convolutional Neural Networks</span></h1>
+    <div class="row">
+       <div class="col s12"><h5 style="text-align:center;">Handwritten Character Recognition using <span style="color: #3498db; font-weight: 600; ">Convolutional Neural Networks</span></h5></div>
+       <div class="col s6"><span style="color: #3498db;font-family: 'Open Sans', Helvetica; text-align:center;">Draw the Character inside this Box!</span></div>
+       <div class="col s6"><span style="color: #2ecc71;">Predicted Output</span></div>
+    </div>
 
-		<canvas id="canvas" width="280" height="280" style="border:8px solid; float: left; margin: 70px; margin-top:160px;  border-radius: 5px; cursor: crosshair;"></canvas>
-		<div id="debug" style="margin:65px; margin-top:100px;">
-
-
-			<!-- <input type="color" id="colors">
-			 <input type="number" id="lineWidth" style="width:60px" value="0.2" step="0.1" min="0.1"> -->
-			<input type="button" id="clearButton" value="Clear" style="">
-			<br/>
-			<span style="color: #4DAF7C; font-weight: 400; font-family: 'Open Sans', Helvetica;	">Draw the Character inside this Box!</span>
-		</div>
-
-		<div style="margin-left:175px; margin-top:460px; float:left; position:absolute;">
-
-			<a href="#" class="myButton"><span style=" font-weight: 400; font-family: 'Open Sans', Helvetica;	"> Predict </span></a>
-		</div>
-		<div >
-			<h1 id="result" style="margin-right:20px; margin-top:300px;float:left;"><span> </span></h1>
-		</div>
-
+    <div class="row">
+       <div class="col s6"><canvas id="canvas" width="280" height="280" style=""></canvas></div>
+       <div class="col s6">
+         <div class="card-panel white">
+             <h1 class="black-text predicted-text" id="result" style=""><span> </span></h1>
+         </div>
+   		</div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <a class="myButton waves-effect waves-light btn-large custom-btn">PREDICT</a>
+  			<input class="waves-effect waves-light btn-large custom-btn" type="button" id="clearButton" value="CLEAR" style="">
+      </div>
+    </div>
+   </div>
 
     <script
-src="https://code.jquery.com/jquery-3.3.1.min.js"
-integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 	    <script src="js/index.js"></script>
 	    <script type="text/javascript">
@@ -51,7 +63,7 @@ $('.myButton').click(function() {
 		data: img,
 		success: function(data) {
 			console.log(data);
-			$('#result').text(' Predicted Output: ' + data['output']);
+			$('#result').text(data['output']);
 		}
 	});
 });
