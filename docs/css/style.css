@@ -5,47 +5,6 @@
 	padding: 0;
 }
 
-html {
-	background-image: -webkit-radial-gradient(
-		top center,
-		circle cover,
-		#e7e7e8 30%,
-		#c6c6c6
-	);
-	background-image: -moz-radial-gradient(
-		top center,
-		circle cover,
-		#e7e7e8 30%,
-		#c6c6c6
-	);
-	background-image: -ms-radial-gradient(
-		top center,
-		circle cover,
-		#e7e7e8 30%,
-		#c6c6c6
-	);
-	background-image: -o-radial-gradient(
-		top center,
-		circle cover,
-		#e7e7e8 30%,
-		#c6c6c6
-	);
-	background-image: radial-gradient(
-		top center,
-		circle cover,
-		#e7e7e8 30%,
-		#c6c6c6
-	);
-	height: 100%;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	user-select: none;
-	overflow: hidden;
-}
-
 nav .nav-wrapper {
 	background: rgb(52, 152, 219) !important;
 }
@@ -118,10 +77,15 @@ nav .nav-wrapper {
 	width: 150px !important;
 }
 
-.card-panel {
+.prediction-panel {
 	border: 8px solid #2ecc71;
 	height: 280px;
 	width: 280px;
+}
+
+.barchart-panel {
+	height: 20vh;
+	width: 50vw;
 }
 .predicted-text {
 	text-align: center;

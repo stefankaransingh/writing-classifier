@@ -30,7 +30,7 @@
     <div class="row">
        <div class="col s6"><canvas id="canvas" width="280" height="280" style=""></canvas></div>
        <div class="col s6">
-         <div class="card-panel white">
+         <div class="card-panel white prediction-panel">
              <h1 class="black-text predicted-text" id="result" style=""><span> </span></h1>
          </div>
    		</div>
@@ -40,6 +40,16 @@
         <a class="myButton waves-effect waves-light btn-large custom-btn">PREDICT</a>
   			<a class="waves-effect waves-light btn-large custom-btn" id="clearButton">CLEAR</a>
       </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <h5 style="text-align:center;">Prediction Probability</h5>
+      </div>
+     <div class="col s12">
+           <div class="chart-container" style="position: relative; height:20vh; width:50vw; margin-bottom:250px;">
+                <canvas id="barChart"></canvas>
+           </div>
+     </div>
     </div>
    </div>
 
@@ -51,7 +61,11 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
 	    <script src="js/index.js"></script>
+      <script src="js/chart.js"></script>
 	    <script type="text/javascript">
 $('.myButton').click(function() {
 	var canvasObj = document.getElementById('canvas');
@@ -64,6 +78,9 @@ $('.myButton').click(function() {
 		success: function(data) {
 			console.log(data);
 			$('#result').text(data['output']);
+      var prob_scores = [0.0, 0.55, 0.0, 0.45, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+      var labels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+      plot_bar_chart(prob_scores,labels)
 		}
 	});
 });
