@@ -83,8 +83,6 @@ $('.myButton').click(function() {
           prob_scores.push(parseFloat(data['class_probabilities'][key]))
           labels.push(key)
       };
-      console.log(labels)
-      console.log(prob_scores)
       plot_bar_chart(prob_scores,labels)
 		}
 	});
