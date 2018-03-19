@@ -73,13 +73,18 @@ $('.myButton').click(function() {
 	$.ajax({
 		type: 'POST',
 		headers: { 'Access-Control-Allow-Origin': '*' },
-		url: 'https://api.theai.ninja/writing_classifier/get_prediction/',
+		url: 'https://api.theai.ninja/writing_classifier/get_prediction/ ',
 		data: img,
 		success: function(data) {
-			console.log(data);
 			$('#result').text(data['output']);
-      var prob_scores = [0.0, 0.55, 0.0, 0.45, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-      var labels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+      var prob_scores = []
+      var labels = []
+      for(key in data['class_probabilities']){
+          prob_scores.push(parseFloat(data['class_probabilities'][key]))
+          labels.push(key)
+      };
+      console.log(labels)
+      console.log(prob_scores)
       plot_bar_chart(prob_scores,labels)
 		}
 	});
